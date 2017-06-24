@@ -1,3 +1,13 @@
-<%= navbar do
-  navbar_header brand: 'Raffle Bee', brand_link: root_path
-end %>
+<%= navbar do %>
+    <%= navbar_header brand: 'Raffle Bee', brand_link: root_path %>
+    <%= navbar_collapse do %>
+        <%= navbar_group align: 'right' do %>
+            <% if user_signed_in?  %>
+                <%= navbar_text current_user.name %>
+                <%= navbar_item 'Logout', destroy_user_session_path %>
+            <% else %>
+                <%= navbar_item 'Sign in', new_user_session_path %>
+            <% end %>
+        <% end %>
+    <% end %>
+<% end %>
