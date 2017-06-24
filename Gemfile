@@ -39,6 +39,7 @@ gem 'devise-i18n'
 gem 'jquery-ui-rails'
 gem 'bootstrap-sass'
 gem 'rails_bootstrap_navbar'
+gem 'bh'
 
 gem 'rails-i18n'
 

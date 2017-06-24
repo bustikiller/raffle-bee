@@ -1,0 +1,9 @@
+$primary-color: #53a54a;
+
+body{
+  background: lighten($primary-color, 40%);
+
+  > .container{
+    background: lighten($primary-color, 45%);
+  }
+}
