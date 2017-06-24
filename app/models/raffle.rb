@@ -23,4 +23,6 @@
 
 class Raffle < ApplicationRecord
   belongs_to :user
+
+  validates_presence_of :name, :starts_on, :edns_on, :max_number_of_tickets, :price
 end
