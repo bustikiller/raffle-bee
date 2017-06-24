@@ -15,6 +15,7 @@
 #  last_sign_in_ip        :string(255)
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  role_id                :integer
 #
 # Indexes
 #
@@ -27,4 +28,11 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  validates :role_id, inclusion: { in: Role.types.values }
+
+  Role.types.each do |role_name, role|
+    define_method("#{role_name}?".to_sym) { self.role_id == role }
+  end
+
 end

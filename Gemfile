@@ -40,6 +40,8 @@ gem 'jquery-ui-rails'
 gem 'bootstrap-sass'
 gem 'rails_bootstrap_navbar'
 
+gem 'rails-i18n'
+
 gem 'cancancan'
 
 gem 'simple_form'
