@@ -1,4 +1,7 @@
-en:
+es:
   navbar:
-    logout: Logout
-    login: Sign in
+    logout: Cerrar sesión
+    login: Iniciar sesión
+    raffle:
+      new: Nueva rifa
+      index: Rifas

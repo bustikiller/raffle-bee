@@ -1,4 +1,7 @@
-es:
+en:
   navbar:
-    logout: Cerrar sesión
-    login: Iniciar sesión
+    logout: Logout
+    login: Sign in
+    raffle:
+      new: New raffle
+      index: Raffles
