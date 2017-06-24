@@ -1,0 +1,4 @@
+es:
+  navbar:
+    logout: Cerrar sesión
+    login: Iniciar sesión
