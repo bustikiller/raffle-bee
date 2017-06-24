@@ -40,6 +40,8 @@ gem 'jquery-ui-rails'
 gem 'bootstrap-sass'
 gem 'rails_bootstrap_navbar'
 
+gem 'simple_form'
+
 gem 'annotate'
 
 group :development, :test do
