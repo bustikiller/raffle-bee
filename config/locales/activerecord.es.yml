@@ -7,8 +7,9 @@ es:
     models:
       raffle: Rifa
     attributes:
-      name: Nombre
-      starts_on: Fecha de comienzo
-      ends_on: Fecha de fin
-      max_number_of_tickets: Número de papeletas
-      price: Precio por papeleta
+      raffle:
+        name: Nombre
+        starts_on: Fecha de comienzo
+        ends_on: Fecha de fin
+        max_number_of_tickets: Número de papeletas
+        price: Precio por papeleta

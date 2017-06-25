@@ -7,8 +7,9 @@ en:
     models:
       raffle: Raffle
     attributes:
-      name: Name
-      starts_on: Start date
-      ends_on: End date
-      max_number_of_tickets: Amount of tickets
-      price: Price per ticket
+      raffle:
+        name: Name
+        starts_on: Start date
+        ends_on: End date
+        max_number_of_tickets: Amount of tickets
+        price: Price per ticket
