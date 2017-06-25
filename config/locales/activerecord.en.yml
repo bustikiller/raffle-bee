@@ -28,3 +28,7 @@ en:
         name: Buyer's Name
         user: Seller
         amount: Amount
+    actions:
+      sell_tickets: Sell tickets
+      view_tickets: View tickets
+      back: Back

@@ -28,3 +28,7 @@ es:
         name: Nombre del comprador
         user: Vendedor
         amount: Cantidad
+    actions:
+      sell_tickets: Vender papeletas
+      view_tickets: Ver papeletas
+      back: Volver

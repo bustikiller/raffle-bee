@@ -50,8 +50,10 @@ class RafflesController < ApplicationController
     if @ticket.valid?
       amount = [@ticket.amount.to_i, 1].max
       @raffle.sell_several_tickets @ticket, amount
+      redirect_to raffle_tickets_path(@raffle)
+    else
+      render :new_sale
     end
-    render :new_sale
   end
 
   private
