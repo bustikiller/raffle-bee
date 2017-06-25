@@ -31,4 +31,6 @@ class Ticket < ApplicationRecord
   validates_uniqueness_of :number, scope: :raffle_id
   validates_presence_of :name, :email
   validates_format_of :email, with: Devise::email_regexp
+
+  scope :between, -> (from, to){ where('number BETWEEN ? AND ?', from, to) }
 end

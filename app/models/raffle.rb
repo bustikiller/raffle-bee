@@ -38,7 +38,7 @@ class Raffle < ApplicationRecord
 
   def sell_several_tickets(ticket_template, amount)
     occupied_numbers = tickets.pluck :number
-    available_numbers = (0...max_number_of_tickets).to_a - occupied_numbers
+    available_numbers = numbers_range.to_a - occupied_numbers
     chosen_numbers = available_numbers.sample(amount)
     Ticket.transaction do
       chosen_numbers.each do |number|
@@ -47,6 +47,10 @@ class Raffle < ApplicationRecord
         new_ticket.save!
       end
     end
+  end
+
+  def numbers_range
+    (0...max_number_of_tickets)
   end
 
   private

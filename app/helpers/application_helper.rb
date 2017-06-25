@@ -34,8 +34,8 @@ module ApplicationHelper
     end
   end
 
-  def bootstrap_table
-    table = BootstrapTable.new
+  def bootstrap_table(args = {})
+    table = BootstrapTable.new args
     yield table
     table.to_html
   end

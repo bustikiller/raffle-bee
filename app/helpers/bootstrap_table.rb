@@ -3,14 +3,16 @@ class BootstrapTable
   include ActionView::Context
 
   attr_accessor :headers, :rows
-  def initialize
+  def initialize(args)
+    @args = args
+    args[:class] = "table table-striped #{args[:class]}".split(' ').sort.uniq
 
     @headers = []
     @rows = []
   end
 
   def to_html
-    content_tag :table, class: 'table table-striped' do
+    content_tag :table, @args do
       build_headers + build_body
     end
   end

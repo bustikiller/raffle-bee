@@ -1,0 +1,25 @@
+// Place all the styles related to the tickets controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+table.tickets{
+  text-align: center;
+  .ticket{
+    padding: 5px;
+    border-radius: 2px;
+
+    &.red{
+      background-color: lighten(#f00, 30%);
+    }
+    &.green{
+      background-color: lighten(#0f0, 30%);
+    }
+  }
+}
+
+.paginator{
+  text-align: center;
+  a{
+    margin: 2px;
+  }
+}

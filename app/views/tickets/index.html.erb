@@ -1,0 +1,5 @@
+<%= panel_with_body title: index_model_text(Ticket) do %>
+
+    <%= tickets_table @initial_number, @last_number, @tickets %>
+    <%= tickets_paginator @initial_number, @raffle  %>
+<% end %>
