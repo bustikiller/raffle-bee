@@ -30,4 +30,21 @@ class Raffle < ApplicationRecord
                                                     less_than_or_equal_to: 100_000 }
 
   validates :price, numericality: {greater_than: 0}
+
+  validate :ends_on_after_starts_on
+
+  before_validation :define_start_and_end_dates
+
+  private
+
+  def define_start_and_end_dates
+    starts_on = starts_on.beginning_of_day if starts_on
+    ends_on = ends_on.end_of_day if ends_on
+  end
+
+  def ends_on_after_starts_on
+    if starts_on && ends_on && starts_on > ends_on
+      errors.add :ends_on, I18n.t('activerecord.errors.ends_on_greater_than_starts_on')
+    end
+  end
 end
