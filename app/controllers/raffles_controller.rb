@@ -17,6 +17,12 @@ class RafflesController < ApplicationController
   end
 
   def update
+    @raffle.user = current_user
+    if @raffle.update(raffle_params)
+      redirect_to raffles_path
+    else
+      render :edit
+    end
   end
 
   def index

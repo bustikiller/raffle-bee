@@ -4,12 +4,14 @@
       table.headers << Raffle.human_attribute_name(:name)
       table.headers << Raffle.human_attribute_name(:user)
       table.headers << Raffle.human_attribute_name(:price)
+      table.headers << edit_model_text(Raffle)
 
       @raffles.each do |raffle|
         table.rows << [
             link_to(raffle.name, raffle_path(raffle)),
             raffle.user.email,
-            human_price(raffle)
+            human_price(raffle),
+            link_to(edit_model_text(Raffle), edit_raffle_path(raffle))
         ]
       end
     end %>

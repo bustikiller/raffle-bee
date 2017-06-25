@@ -1,2 +1,3 @@
-<h1>Raffles#edit</h1>
-<p>Find me in app/views/raffles/edit.html.erb</p>
+<%= panel_with_body title: edit_model_text(Raffle) do %>
+    <%= render 'form', raffle: @raffle %>
+<% end %>

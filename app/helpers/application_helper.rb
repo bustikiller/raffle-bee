@@ -8,6 +8,11 @@ module ApplicationHelper
     t(translation_key, model_name: t("#{model.name.downcase}.one", scope: 'activerecord.models'))
   end
 
+  def edit_model_text(model, femenine=false)
+    translation_key = "activerecord.new#{'_femenine' if femenine}"
+    t('activerecord.edit', model_name: t("#{model.name.downcase}.one", scope: 'activerecord.models'))
+  end
+
   def index_model_text(model)
     t("activerecord.models.#{model.name.downcase}.other")
   end

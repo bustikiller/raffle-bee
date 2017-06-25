@@ -2,6 +2,7 @@ en:
   activerecord:
     new: New %{model_name}
     new_femenine: New %{model_name}
+    edit: Edit %{model_name}
     errors:
       ends_on_greater_than_starts_on: The end date should be greater than the start date
     models:
