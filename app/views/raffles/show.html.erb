@@ -1,2 +1,8 @@
-<h1>Raffles#show</h1>
-<p>Find me in app/views/raffles/show.html.erb</p>
+<%= panel_with_body title: show_model_text(@raffle, :name) do %>
+    <%= bootstrap_description @raffle,
+                              name: @raffle.name,
+                              starts_on: @raffle.starts_on,
+                              ends_on: @raffle.ends_on,
+                              price: human_price(@raffle)
+    %>
+<% end %>
