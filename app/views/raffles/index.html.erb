@@ -12,7 +12,7 @@
             link_to(raffle.name, raffle_path(raffle)),
             raffle.user.email,
             human_price(raffle),
-            raffle.tickets.count,
+            "#{raffle.tickets.count} / #{raffle.max_number_of_tickets}",
             link_to(edit_model_text(Raffle), edit_raffle_path(raffle))
         ]
       end
