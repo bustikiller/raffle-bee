@@ -3,6 +3,9 @@
                               name: @raffle.name,
                               starts_on: @raffle.starts_on,
                               ends_on: @raffle.ends_on,
-                              price: human_price(@raffle)
+                              price: human_price(@raffle),
+                              tickets: @raffle.tickets.count
     %>
+
+    <%= link_to 'Sell ticket', raffle_sell_path(@raffle), class: 'btn btn-primary col-sm-offset-2' %>
 <% end %>

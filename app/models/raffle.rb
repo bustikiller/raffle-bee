@@ -23,6 +23,7 @@
 
 class Raffle < ApplicationRecord
   belongs_to :user
+  has_many :tickets
 
   validates_presence_of :name, :starts_on, :ends_on, :max_number_of_tickets, :price
   validates :max_number_of_tickets, numericality: { only_integer: true,
@@ -34,6 +35,19 @@ class Raffle < ApplicationRecord
   validate :ends_on_after_starts_on
 
   before_validation :define_start_and_end_dates
+
+  def sell_several_tickets(ticket_template, amount)
+    occupied_numbers = tickets.pluck :number
+    available_numbers = (0...max_number_of_tickets).to_a - occupied_numbers
+    chosen_numbers = available_numbers.sample(amount)
+    Ticket.transaction do
+      chosen_numbers.each do |number|
+        new_ticket = ticket_template.dup
+        new_ticket.number = number
+        new_ticket.save!
+      end
+    end
+  end
 
   private
 

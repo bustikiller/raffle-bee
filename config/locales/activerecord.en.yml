@@ -9,6 +9,9 @@ en:
       raffle:
         one: Raffle
         other: Raffles
+      ticket:
+        one: Ticket
+        other: Tickets
     attributes:
       raffle:
         name: Name
@@ -17,3 +20,11 @@ en:
         max_number_of_tickets: Amount of tickets
         price: Price per ticket
         user: Owner
+        tickets: Tickets
+      ticket:
+        raffle: Raffle
+        number: Number
+        email: Buyer's email
+        name: Buyer's Name
+        user: Seller
+        amount: Amount

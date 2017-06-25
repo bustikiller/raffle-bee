@@ -1,6 +1,8 @@
 class RafflesController < ApplicationController
   load_and_authorize_resource
 
+  before_action :load_resource, only: [:new_sale, :create_sale]
+
   def new
   end
 
@@ -35,9 +37,34 @@ class RafflesController < ApplicationController
   def show
   end
 
+  def new_sale
+    authorize! :sell, @raffle
+    binding.pry unless @raffle
+    @ticket = @raffle.tickets.build
+  end
+
+  def create_sale
+    authorize! :sell, @raffle
+    @ticket = @raffle.tickets.build ticket_params
+    @ticket.user = current_user
+    if @ticket.valid?
+      amount = [@ticket.amount.to_i, 1].max
+      @raffle.sell_several_tickets @ticket, amount
+    end
+    render :new_sale
+  end
+
   private
 
   def raffle_params
     params.require(:raffle).permit(:id, :name, :starts_on, :ends_on, :max_number_of_tickets, :price)
+  end
+
+  def ticket_params
+    params.require(:ticket).permit(:name, :email, :amount)
+  end
+
+  def load_resource
+    @raffle = Raffle.find params['raffle_id']
   end
 end

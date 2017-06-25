@@ -1,0 +1,11 @@
+<%= panel_with_body title: new_model_text(Ticket, femenine: true) do %>
+    <%= simple_form_for @ticket, url: raffle_sell_path,
+                        html: { class: 'form-horizontal' },
+                        wrapper: :horizontal_form do |f| %>
+
+        <%= f.input :amount, required: true, input_html: { value: '1' } %>
+        <%= f.input :name %>
+        <%= f.input :email %>
+        <%= submit_button f %>
+    <% end %>
+<% end %>

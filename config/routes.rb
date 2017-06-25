@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :raffles do
-    resources :tickets
+    get 'sell', to: 'raffles#new_sale'
+    post 'sell', to: 'raffles#create_sale'
   end
 
   root to: 'home#dashboard'

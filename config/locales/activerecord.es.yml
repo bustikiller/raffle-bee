@@ -9,6 +9,9 @@ es:
       raffle:
         one: Rifa
         other: Rifas
+      ticket:
+        one: Papeleta
+        other: Papeletas
     attributes:
       raffle:
         name: Nombre
@@ -17,3 +20,11 @@ es:
         max_number_of_tickets: Número de papeletas
         price: Precio por papeleta
         user: Propietario
+        tickets: Papeletas
+      ticket:
+        raffle: Rifa
+        number: Número
+        email: Correo del comprador
+        name: Nombre del comprador
+        user: Vendedor
+        amount: Cantidad

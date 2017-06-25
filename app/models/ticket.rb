@@ -25,4 +25,10 @@
 class Ticket < ApplicationRecord
   belongs_to :user
   belongs_to :raffle
+
+  attr_accessor :amount
+
+  validates_uniqueness_of :number, scope: :raffle_id
+  validates_presence_of :name, :email
+  validates_format_of :email, with: Devise::email_regexp
 end
