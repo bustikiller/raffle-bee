@@ -1,2 +1,3 @@
-<h1>Raffles#new</h1>
-<p>Find me in app/views/raffles/new.html.erb</p>
+<%= panel_with_body title: new_model_text(Raffle, femenine: true) do %>
+    <%= render 'form', raffle: @raffle %>
+<% end %>

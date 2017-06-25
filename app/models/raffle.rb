@@ -24,5 +24,10 @@
 class Raffle < ApplicationRecord
   belongs_to :user
 
-  validates_presence_of :name, :starts_on, :edns_on, :max_number_of_tickets, :price
+  validates_presence_of :name, :starts_on, :ends_on, :max_number_of_tickets, :price
+  validates :max_number_of_tickets, numericality: { only_integer: true,
+                                                    greater_than_or_equal_to: 100,
+                                                    less_than_or_equal_to: 100_000 }
+
+  validates :price, numericality: {greater_than: 0}
 end

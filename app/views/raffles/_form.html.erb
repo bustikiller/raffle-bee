@@ -1,0 +1,11 @@
+<%= simple_form_for raffle, html: { class: 'form-horizontal' }, wrapper: :horizontal_form do |f| %>
+
+    <%= f.input :name %>
+    <%= f.input :starts_on, label_html: { class: 'col-sm-3' } %>
+    <%= f.input :ends_on, label_html: { class: 'col-sm-3' } %>
+
+    <%= f.input :max_number_of_tickets %>
+    <%= f.input :price %>
+    <%= f.submit %>
+
+<% end %>

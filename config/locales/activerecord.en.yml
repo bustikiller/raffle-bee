@@ -1,5 +1,7 @@
 en:
   activerecord:
+    new: New %{model_name}
+    new_femenine: New %{model_name}
     models:
       raffle: Raffle
     attributes:
