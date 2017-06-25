@@ -15,4 +15,10 @@ module ApplicationHelper
       end
     end
   end
+
+  def submit_button(f)
+    content_tag :div, class: 'col-sm-offset-3 col-sm-9' do
+      f.submit class: 'btn btn-primary'
+    end
+  end
 end
