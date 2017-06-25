@@ -20,6 +20,7 @@ class RafflesController < ApplicationController
   end
 
   def index
+    @raffles = Raffle.accessible_by current_ability
   end
 
   def destroy

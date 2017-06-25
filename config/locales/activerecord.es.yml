@@ -5,7 +5,9 @@ es:
     errors:
       ends_on_greater_than_starts_on: La fecha de fin debe ser posterior a la fecha de inicio
     models:
-      raffle: Rifa
+      raffle:
+        one: Rifa
+        other: Rifas
     attributes:
       raffle:
         name: Nombre
@@ -13,3 +15,4 @@ es:
         ends_on: Fecha de fin
         max_number_of_tickets: Número de papeletas
         price: Precio por papeleta
+        user: Propietario

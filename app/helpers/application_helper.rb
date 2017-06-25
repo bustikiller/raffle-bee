@@ -5,7 +5,11 @@ module ApplicationHelper
 
   def new_model_text(model, femenine=false)
     translation_key = "activerecord.new#{'_femenine' if femenine}"
-    t(translation_key, model_name: t(model.name.downcase, scope: 'activerecord.models'))
+    t(translation_key, model_name: t("#{model.name.downcase}.one", scope: 'activerecord.models'))
+  end
+
+  def index_model_text(model)
+    t("activerecord.models.#{model.name.downcase}.other")
   end
 
   def panel_with_body(*args)
@@ -20,5 +24,11 @@ module ApplicationHelper
     content_tag :div, class: 'col-sm-offset-3 col-sm-9' do
       f.submit class: 'btn btn-primary'
     end
+  end
+
+  def bootstrap_table
+    table = BootstrapTable.new
+    yield table
+    table.to_html
   end
 end

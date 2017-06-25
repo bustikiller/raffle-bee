@@ -1,2 +1,16 @@
-<h1>Raffles#index</h1>
-<p>Find me in app/views/raffles/index.html.erb</p>
+<%= panel_with_body title: index_model_text(Raffle) do %>
+
+    <%= bootstrap_table do |table|
+      table.headers << Raffle.human_attribute_name(:name)
+      table.headers << Raffle.human_attribute_name(:user)
+      table.headers << Raffle.human_attribute_name(:price)
+
+      @raffles.each do |raffle|
+        table.rows << [
+            link_to(raffle.name, raffle_path(raffle)),
+            raffle.user.email,
+            human_price(raffle)
+        ]
+      end
+    end %>
+<% end %>

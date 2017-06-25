@@ -5,7 +5,9 @@ en:
     errors:
       ends_on_greater_than_starts_on: The end date should be greater than the start date
     models:
-      raffle: Raffle
+      raffle:
+        one: Raffle
+        other: Raffles
     attributes:
       raffle:
         name: Name
@@ -13,3 +15,4 @@ en:
         ends_on: End date
         max_number_of_tickets: Amount of tickets
         price: Price per ticket
+        user: Owner
