@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170624101414) do
+ActiveRecord::Schema.define(version: 20170625095839) do
 
   create_table "raffles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name", null: false
     t.date "starts_on", null: false
     t.date "ends_on", null: false
     t.integer "max_number_of_tickets", null: false
-    t.decimal "price", precision: 10, null: false
+    t.decimal "price", precision: 5, scale: 2, null: false
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
