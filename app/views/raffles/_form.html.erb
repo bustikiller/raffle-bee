@@ -6,6 +6,10 @@
 
     <%= f.input :max_number_of_tickets %>
     <%= f.input :price %>
-    <%= f.submit %>
 
+    <%=
+      content_tag :div, class: 'col-sm-offset-3 col-sm-9' do
+        f.submit class: 'btn btn-primary'
+      end
+    %>
 <% end %>
