@@ -50,6 +50,8 @@ gem 'simple_form'
 
 gem 'annotate'
 
+gem 'riews', git: 'https://github.com/bustikiller/riews'
+
 group :development, :test do
   gem 'pry'
 end

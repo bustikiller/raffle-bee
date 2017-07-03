@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/bustikiller/riews
+  revision: b81aefa09814433b5a2826ee60fae3e7d1d22d30
+  specs:
+    riews (0.1.0)
+      rails (>= 3.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -218,6 +225,7 @@ DEPENDENCIES
   rails (~> 5.1.1)
   rails-i18n
   rails_bootstrap_navbar
+  riews!
   sass-rails (~> 5.0)
   simple_form
   spring
