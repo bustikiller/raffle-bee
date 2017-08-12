@@ -20,31 +20,10 @@ module ApplicationHelper
     t("activerecord.models.#{model.name.downcase}.other")
   end
 
-  def panel_with_body(*args)
-    panel(*args) do
-      content_tag :div, class: 'panel-body' do
-        yield
-      end
-    end
-  end
-
   def submit_button(f)
     content_tag :div, class: 'col-sm-offset-3 col-sm-9' do
       f.submit class: 'btn btn-primary'
     end
   end
 
-  def bootstrap_table(args = {})
-    table = BootstrapTable.new args
-    yield table
-    table.to_html
-  end
-
-  def bootstrap_description(instance, attributes)
-    content_tag :dl, class: 'dl-horizontal' do
-      attributes.to_a.map do |(k, v)|
-        (content_tag :dt, instance.class.human_attribute_name(k)) + (content_tag :dd, v)
-      end.inject(:+)
-    end
-  end
 end

@@ -1,6 +1,11 @@
-GIT
-  remote: https://github.com/bustikiller/riews
-  revision: b81aefa09814433b5a2826ee60fae3e7d1d22d30
+PATH
+  remote: ../btgen
+  specs:
+    btgen (0.1.0)
+      rails (>= 3.0.0)
+
+PATH
+  remote: ../riews
   specs:
     riews (0.1.0)
       rails (>= 3.0.0)
@@ -211,6 +216,7 @@ DEPENDENCIES
   annotate
   bh
   bootstrap-sass
+  btgen!
   cancancan
   coffee-rails (~> 4.2)
   devise

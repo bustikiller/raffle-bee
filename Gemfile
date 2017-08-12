@@ -50,7 +50,8 @@ gem 'simple_form'
 
 gem 'annotate'
 
-gem 'riews', git: 'https://github.com/bustikiller/riews'
+gem 'riews', path: '../riews'
+gem 'btgen', path: '../btgen'
 
 group :development, :test do
   gem 'pry'
