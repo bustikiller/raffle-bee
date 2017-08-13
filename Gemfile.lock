@@ -1,13 +1,17 @@
-PATH
-  remote: ../btgen
+GIT
+  remote: https://github.com/bustikiller/btgen
+  revision: 2c798d2ab20522db18fdd81d5b70cdd1929d0adf
   specs:
     btgen (0.1.0)
       rails (>= 3.0.0)
 
-PATH
-  remote: ../riews
+GIT
+  remote: https://github.com/bustikiller/riews
+  revision: 29c2a358d982bb3275b8d47f66088feb5c394ec8
   specs:
     riews (0.1.0)
+      cocoon (~> 1.2.10)
+      kaminari (~> 1.0.1)
       rails (>= 3.0.0)
 
 GEM
@@ -68,6 +72,7 @@ GEM
       sass (>= 3.3.4)
     builder (3.2.3)
     cancancan (2.0.0)
+    cocoon (1.2.10)
     coderay (1.1.1)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
@@ -100,6 +105,18 @@ GEM
       thor (>= 0.14, < 2.0)
     jquery-ui-rails (6.0.1)
       railties (>= 3.2.16)
+    kaminari (1.0.1)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.0.1)
+      kaminari-activerecord (= 1.0.1)
+      kaminari-core (= 1.0.1)
+    kaminari-actionview (1.0.1)
+      actionview
+      kaminari-core (= 1.0.1)
+    kaminari-activerecord (1.0.1)
+      activerecord
+      kaminari-core (= 1.0.1)
+    kaminari-core (1.0.1)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)

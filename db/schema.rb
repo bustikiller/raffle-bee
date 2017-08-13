@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170703181019) do
+ActiveRecord::Schema.define(version: 20170813102651) do
 
   create_table "raffles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name", null: false
@@ -24,12 +24,47 @@ ActiveRecord::Schema.define(version: 20170703181019) do
     t.index ["user_id"], name: "index_raffles_on_user_id"
   end
 
+  create_table "riews_arguments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "value", null: false
+    t.bigint "riews_filter_criteria_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["riews_filter_criteria_id"], name: "index_riews_arguments_on_riews_filter_criteria_id"
+  end
+
+  create_table "riews_columns", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "method"
+    t.bigint "riews_view_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["riews_view_id"], name: "index_riews_columns_on_riews_view_id"
+  end
+
+  create_table "riews_filter_criterias", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "field_name"
+    t.integer "operator", limit: 2, null: false
+    t.bigint "riews_view_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "negation", default: false, null: false
+    t.index ["riews_view_id"], name: "index_riews_filter_criterias_on_riews_view_id"
+  end
+
+  create_table "riews_relationships", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.bigint "riews_view_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["riews_view_id"], name: "index_riews_relationships_on_riews_view_id"
+  end
+
   create_table "riews_views", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name", null: false
     t.string "model", null: false
     t.string "code", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "paginator_size", default: 0, null: false
   end
 
   create_table "tickets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -63,6 +98,10 @@ ActiveRecord::Schema.define(version: 20170703181019) do
   end
 
   add_foreign_key "raffles", "users"
+  add_foreign_key "riews_arguments", "riews_filter_criterias"
+  add_foreign_key "riews_columns", "riews_views"
+  add_foreign_key "riews_filter_criterias", "riews_views"
+  add_foreign_key "riews_relationships", "riews_views"
   add_foreign_key "tickets", "raffles"
   add_foreign_key "tickets", "users"
 end
