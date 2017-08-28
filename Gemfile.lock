@@ -1,16 +1,15 @@
-GIT
-  remote: https://github.com/bustikiller/btgen
-  revision: 2c798d2ab20522db18fdd81d5b70cdd1929d0adf
+PATH
+  remote: ../btgen
   specs:
     btgen (0.1.0)
       rails (>= 3.0.0)
 
-GIT
-  remote: https://github.com/bustikiller/riews
-  revision: 29c2a358d982bb3275b8d47f66088feb5c394ec8
+PATH
+  remote: ../riews
   specs:
     riews (0.1.0)
       cocoon (~> 1.2.10)
+      dentaku (~> 2.0.11)
       kaminari (~> 1.0.1)
       rails (>= 3.0.0)
 
@@ -82,6 +81,7 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
+    dentaku (2.0.11)
     devise (4.3.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)

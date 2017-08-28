@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170813102651) do
+ActiveRecord::Schema.define(version: 20170823155252) do
 
   create_table "raffles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name", null: false
@@ -37,6 +37,12 @@ ActiveRecord::Schema.define(version: 20170813102651) do
     t.bigint "riews_view_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "prefix"
+    t.string "postfix"
+    t.integer "aggregate", limit: 2
+    t.string "name"
+    t.string "pattern"
+    t.boolean "hide_from_display", default: false
     t.index ["riews_view_id"], name: "index_riews_columns_on_riews_view_id"
   end
 
@@ -60,11 +66,12 @@ ActiveRecord::Schema.define(version: 20170813102651) do
 
   create_table "riews_views", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name", null: false
-    t.string "model", null: false
+    t.string "model"
     t.string "code", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "paginator_size", default: 0, null: false
+    t.boolean "uniqueness", default: false, null: false
   end
 
   create_table "tickets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
