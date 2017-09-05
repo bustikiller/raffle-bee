@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170823155252) do
+ActiveRecord::Schema.define(version: 20170903184942) do
 
   create_table "raffles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name", null: false
@@ -24,12 +24,25 @@ ActiveRecord::Schema.define(version: 20170823155252) do
     t.index ["user_id"], name: "index_raffles_on_user_id"
   end
 
-  create_table "riews_arguments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "value", null: false
-    t.bigint "riews_filter_criteria_id"
+  create_table "riews_action_links", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "base_path"
+    t.string "display_pattern"
+    t.boolean "absolute", default: false, null: false
+    t.bigint "riews_column_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["riews_filter_criteria_id"], name: "index_riews_arguments_on_riews_filter_criteria_id"
+    t.integer "http_verb", limit: 1, default: 0, null: false
+    t.index ["riews_column_id"], name: "index_riews_action_links_on_riews_column_id"
+  end
+
+  create_table "riews_arguments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "value", null: false
+    t.bigint "argumentable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "position", default: 0, null: false
+    t.string "argumentable_type"
+    t.index ["argumentable_id"], name: "index_riews_arguments_on_argumentable_id"
   end
 
   create_table "riews_columns", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -43,6 +56,7 @@ ActiveRecord::Schema.define(version: 20170823155252) do
     t.string "name"
     t.string "pattern"
     t.boolean "hide_from_display", default: false
+    t.integer "position", default: 0, null: false
     t.index ["riews_view_id"], name: "index_riews_columns_on_riews_view_id"
   end
 
@@ -53,6 +67,7 @@ ActiveRecord::Schema.define(version: 20170823155252) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "negation", default: false, null: false
+    t.integer "position", default: 0, null: false
     t.index ["riews_view_id"], name: "index_riews_filter_criterias_on_riews_view_id"
   end
 
@@ -61,6 +76,7 @@ ActiveRecord::Schema.define(version: 20170823155252) do
     t.bigint "riews_view_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "position", default: 0, null: false
     t.index ["riews_view_id"], name: "index_riews_relationships_on_riews_view_id"
   end
 
@@ -105,7 +121,7 @@ ActiveRecord::Schema.define(version: 20170823155252) do
   end
 
   add_foreign_key "raffles", "users"
-  add_foreign_key "riews_arguments", "riews_filter_criterias"
+  add_foreign_key "riews_action_links", "riews_columns"
   add_foreign_key "riews_columns", "riews_views"
   add_foreign_key "riews_filter_criterias", "riews_views"
   add_foreign_key "riews_relationships", "riews_views"
