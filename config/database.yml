@@ -48,7 +48,8 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
-  database: raffle_bee_production
-  username: raffle_bee
-  password: <%= ENV['RAFFLE_BEE_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  encoding: utf8
+  reconnect: false
+  pool: 5
+  url: <%= ENV['DATABASE_URL'] %>
