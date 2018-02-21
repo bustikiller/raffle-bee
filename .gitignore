@@ -20,7 +20,6 @@
 .idea/
 .ruby-gemset
 .ruby-version
-bin/
 tmp/
 vendor/
 log/
