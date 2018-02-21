@@ -1,5 +1,7 @@
-PATH
-  remote: ../riews
+GIT
+  remote: https://github.com/bustikiller/riews
+  revision: 543c016b7cd5f00d8445a5edab5ae364ea66403e
+  branch: master
   specs:
     riews (0.1.3)
       bh (~> 1.3.6)
