@@ -31,8 +31,16 @@ class User < ApplicationRecord
 
   validates :role_id, inclusion: { in: Role.types.values }
 
+  before_validation :default_role
+
   Role.types.each do |role_name, role|
     define_method("#{role_name}?".to_sym) { self.role_id == role }
+  end
+
+  private
+
+  def default_role
+    self.role_id ||= Role.types[:regular_user]
   end
 
 end
