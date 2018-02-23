@@ -2,7 +2,7 @@
     <%= navbar_header brand: t('application.name'), brand_link: root_path %>
     <%= navbar_collapse do %>
         <%= navbar_group do %>
-            <%= navbar_item t('navbar.raffle.new'), new_raffle_path %>
+            <%= navbar_item t('navbar.raffle.new'), new_raffle_path if can? :create, Raffle %>
             <%= navbar_item t('navbar.raffle.index'), raffles_path %>
         <% end %>
         <%= navbar_group align: 'right' do %>
