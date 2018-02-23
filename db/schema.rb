@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20170903184942) do
 
-  create_table "raffles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "raffles", force: :cascade do |t|
     t.string "name", null: false
     t.date "starts_on", null: false
     t.date "ends_on", null: false
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20170903184942) do
     t.index ["user_id"], name: "index_raffles_on_user_id"
   end
 
-  create_table "riews_action_links", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "riews_action_links", force: :cascade do |t|
     t.string "base_path"
     t.string "display_pattern"
     t.boolean "absolute", default: false, null: false
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20170903184942) do
     t.index ["riews_column_id"], name: "index_riews_action_links_on_riews_column_id"
   end
 
-  create_table "riews_arguments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "riews_arguments", force: :cascade do |t|
     t.string "value", null: false
     t.bigint "argumentable_id"
     t.datetime "created_at", null: false
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20170903184942) do
     t.index ["argumentable_id"], name: "index_riews_arguments_on_argumentable_id"
   end
 
-  create_table "riews_columns", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "riews_columns", force: :cascade do |t|
     t.string "method"
     t.bigint "riews_view_id"
     t.datetime "created_at", null: false
@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 20170903184942) do
     t.index ["riews_view_id"], name: "index_riews_columns_on_riews_view_id"
   end
 
-  create_table "riews_filter_criterias", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "riews_filter_criterias", force: :cascade do |t|
     t.string "field_name"
     t.integer "operator", limit: 2, null: false
     t.bigint "riews_view_id"
@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(version: 20170903184942) do
     t.index ["riews_view_id"], name: "index_riews_filter_criterias_on_riews_view_id"
   end
 
-  create_table "riews_relationships", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "riews_relationships", force: :cascade do |t|
     t.string "name"
     t.bigint "riews_view_id"
     t.datetime "created_at", null: false
@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(version: 20170903184942) do
     t.index ["riews_view_id"], name: "index_riews_relationships_on_riews_view_id"
   end
 
-  create_table "riews_views", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "riews_views", force: :cascade do |t|
     t.string "name", null: false
     t.string "model"
     t.string "code", null: false
@@ -90,7 +90,7 @@ ActiveRecord::Schema.define(version: 20170903184942) do
     t.boolean "uniqueness", default: false, null: false
   end
 
-  create_table "tickets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "tickets", force: :cascade do |t|
     t.bigint "raffle_id"
     t.bigint "user_id"
     t.integer "number", null: false
@@ -102,7 +102,7 @@ ActiveRecord::Schema.define(version: 20170903184942) do
     t.index ["user_id"], name: "index_tickets_on_user_id"
   end
 
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"

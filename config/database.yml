@@ -1,24 +1,19 @@
 default: &default
-  adapter: mysql2
+  adapter: postgresql
   encoding: utf8
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  reconnect: false
+  pool: 5
   username: raffle_bee
-  password: raffle_bee
-  socket: /var/run/mysqld/mysqld.sock
+  password:
+  host: localhost
 
 development:
   <<: *default
   database: raffle_bee_development
 
 test:
-  adapter: postgresql
-  encoding: utf8
-  reconnect: false
+  <<: *default
   database: raffle_bee_test
-  pool: 5
-  username: raffle_bee
-  password:
-  host: localhost
 
 production:
   adapter: postgresql
