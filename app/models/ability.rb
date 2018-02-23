@@ -2,6 +2,7 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
+    return if user.blank?
     if user.superadmin?
       can :manage, :all
       can :debug, Riews::View
