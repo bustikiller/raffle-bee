@@ -38,13 +38,10 @@ class RafflesController < ApplicationController
   end
 
   def new_sale
-    authorize! :sell, @raffle
-    binding.pry unless @raffle
     @ticket = @raffle.tickets.build
   end
 
   def create_sale
-    authorize! :sell, @raffle
     @ticket = @raffle.tickets.build ticket_params
     @ticket.user = current_user
     if @ticket.valid?
