@@ -13,7 +13,7 @@ GIT
 
 GIT
   remote: https://github.com/bustikiller/riews
-  revision: 809a1f6d50fbdec3c25b615634f000bfe1cd6bdd
+  revision: 707e6a4418777840003443089e6fb721a2a629fe
   branch: master
   specs:
     riews (0.1.3)
