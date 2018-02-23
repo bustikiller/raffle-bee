@@ -41,3 +41,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
 end
+
+group :test do
+  gem 'rspec_junit_formatter'
+end
