@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'dotenv-rails', groups: [:development, :test]
+
 gem 'annotate'
 gem 'bh'
 gem 'bootstrap-sass'
@@ -24,6 +26,7 @@ gem 'simple_form'
 gem 'turbolinks', '~> 5'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'uglifier', '>= 1.3.0'
+gem 'sendgrid-ruby'
 
 group :development, :test do
   gem 'pry'
