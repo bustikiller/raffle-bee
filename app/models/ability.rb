@@ -6,7 +6,7 @@ class Ability
       can :manage, :all
       can :debug, Riews::View
     elsif user.regular_user?
-      can :read, Raffle
+      can  [:read, :sell], Raffle
       can :read, Ticket
     end
   end
