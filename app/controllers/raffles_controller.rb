@@ -49,7 +49,12 @@ class RafflesController < ApplicationController
     @ticket.user = current_user
     if @ticket.valid?
       amount = [@ticket.amount.to_i, 1].max
-      @raffle.sell_several_tickets @ticket, amount
+      numbers_bought = @raffle.sell_several_tickets @ticket, amount
+      MailerService.new.send(
+          name: @ticket.name,
+          email: @ticket.email,
+          tickets: numbers_bought
+      )
       redirect_to raffle_tickets_path(@raffle)
     else
       render :new_sale

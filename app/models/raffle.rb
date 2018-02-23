@@ -47,6 +47,7 @@ class Raffle < ApplicationRecord
         new_ticket.save!
       end
     end
+    chosen_numbers
   end
 
   def numbers_range
