@@ -56,7 +56,7 @@ class RafflesController < ApplicationController
           email: @ticket.email,
           tickets: numbers_bought
       )
-      redirect_to raffle_tickets_path(@raffle)
+      redirect_to raffle_sell_path(@raffle)
     else
       render :new_sale
     end
