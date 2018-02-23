@@ -52,6 +52,7 @@ class RafflesController < ApplicationController
       numbers_bought = @raffle.sell_several_tickets @ticket, amount
       MailerService.new.send(
           name: @ticket.name,
+          raffle_name: @raffle.name,
           email: @ticket.email,
           tickets: numbers_bought
       )
