@@ -49,7 +49,7 @@ class RafflesController < ApplicationController
       numbers_bought = @raffle.sell_several_tickets @ticket, amount
       MailerService.new.send(
           name: @ticket.name,
-          raffle_name: @raffle.name,
+          raffle: @raffle,
           email: @ticket.email,
           tickets: numbers_bought
       )
@@ -62,7 +62,7 @@ class RafflesController < ApplicationController
   private
 
   def raffle_params
-    params.require(:raffle).permit(:id, :name, :starts_on, :ends_on, :max_number_of_tickets, :price)
+    params.require(:raffle).permit(:id, :name, :starts_on, :ends_on, :max_number_of_tickets, :price, :award)
   end
 
   def ticket_params

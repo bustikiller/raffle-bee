@@ -5,7 +5,7 @@ class MailerService
   TICKETS_MAIL_TEMPLATE = 'd98af60e-516b-4ee6-8f7b-1bf57d35b3c8'
   SENDER_MAIL = 'rafflebeeservice@gmail.com'
 
-  def send(name:, raffle_name:, email:, tickets:)
+  def send(name:, raffle:, email:, tickets:)
     mail = Mail.new
     mail.from = Email.new(email: "#{raffle_name} <#{SENDER_MAIL}>")
 
@@ -13,7 +13,8 @@ class MailerService
     personalization.add_to(Email.new(email: email, name: name))
     personalization.add_substitution(Substitution.new(key: '-name-', value: name.capitalize))
     personalization.add_substitution(Substitution.new(key: '-tickets-', value: tickets.join(', ')))
-    personalization.add_substitution(Substitution.new(key: '-raffle_name-', value: raffle_name))
+    personalization.add_substitution(Substitution.new(key: '-raffle_name-', value: raffle.name))
+    personalization.add_substitution(Substitution.new(key: '-award-', value: raffle.award))
     mail.add_personalization(personalization)
     mail.add_content(Content.new(type: 'text/html', value: 'body placeholder'))
     mail.template_id = TICKETS_MAIL_TEMPLATE
