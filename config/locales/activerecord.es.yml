@@ -21,6 +21,7 @@ es:
         price: Precio por papeleta
         user: Propietario
         tickets: Papeletas
+        award: Premio
       ticket:
         raffle: Rifa
         number: Número

@@ -11,7 +11,7 @@
 #  user_id               :integer
 #  created_at            :datetime         not null
 #  updated_at            :datetime         not null
-#  prize                 :text
+#  award                 :text
 #
 # Indexes
 #
@@ -29,7 +29,7 @@ class Raffle < ApplicationRecord
   has_many :assignments
   has_many :sellers, :through => :assignments, source: :user
 
-  validates_presence_of :name, :starts_on, :ends_on, :max_number_of_tickets, :price
+  validates_presence_of :name, :starts_on, :ends_on, :max_number_of_tickets, :price, :award
   validates :max_number_of_tickets, numericality: { only_integer: true,
                                                     greater_than_or_equal_to: 100,
                                                     less_than_or_equal_to: 100_000 }

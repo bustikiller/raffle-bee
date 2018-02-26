@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 20180226224737) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "prize"
+    t.text "award"
     t.index ["user_id"], name: "index_raffles_on_user_id"
   end
 
