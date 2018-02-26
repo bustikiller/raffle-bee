@@ -7,7 +7,7 @@ class RafflesController < ApplicationController
   end
 
   def create
-    @raffle.user = current_user
+    @raffle.owner = current_user
     if @raffle.save
       redirect_to raffles_path
     else
@@ -19,7 +19,7 @@ class RafflesController < ApplicationController
   end
 
   def update
-    @raffle.user = current_user
+    @raffle.owner = current_user
     if @raffle.update(raffle_params)
       redirect_to raffles_path
     else

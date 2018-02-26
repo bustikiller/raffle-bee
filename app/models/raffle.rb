@@ -3,7 +3,7 @@
 # Table name: raffles
 #
 #  id                    :integer          not null, primary key
-#  name                  :string(255)      not null
+#  name                  :string           not null
 #  starts_on             :date             not null
 #  ends_on               :date             not null
 #  max_number_of_tickets :integer          not null
@@ -22,8 +22,11 @@
 #
 
 class Raffle < ApplicationRecord
-  belongs_to :user
+  belongs_to :owner, class_name: :User, foreign_key: :user_id
   has_many :tickets
+
+  has_many :assignments
+  has_many :sellers, :through => :assignments, source: :user
 
   validates_presence_of :name, :starts_on, :ends_on, :max_number_of_tickets, :price
   validates :max_number_of_tickets, numericality: { only_integer: true,
