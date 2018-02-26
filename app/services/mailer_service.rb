@@ -7,7 +7,7 @@ class MailerService
 
   def send(name:, raffle:, email:, tickets:)
     mail = Mail.new
-    mail.from = Email.new(email: "#{raffle_name} <#{SENDER_MAIL}>")
+    mail.from = Email.new(email: "#{raffle.name} <#{SENDER_MAIL}>")
 
     personalization = Personalization.new
     personalization.add_to(Email.new(email: email, name: name))
