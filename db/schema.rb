@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170903184942) do
+ActiveRecord::Schema.define(version: 20180226205546) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "assignments", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "raffle_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["raffle_id"], name: "index_assignments_on_raffle_id"
+    t.index ["user_id"], name: "index_assignments_on_user_id"
+  end
 
   create_table "raffles", force: :cascade do |t|
     t.string "name", null: false
@@ -31,7 +43,7 @@ ActiveRecord::Schema.define(version: 20170903184942) do
     t.bigint "riews_column_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "http_verb", limit: 1, default: 0, null: false
+    t.integer "http_verb", limit: 2, default: 0, null: false
     t.index ["riews_column_id"], name: "index_riews_action_links_on_riews_column_id"
   end
 
@@ -120,6 +132,8 @@ ActiveRecord::Schema.define(version: 20170903184942) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "assignments", "raffles"
+  add_foreign_key "assignments", "users"
   add_foreign_key "raffles", "users"
   add_foreign_key "riews_action_links", "riews_columns"
   add_foreign_key "riews_columns", "riews_views"

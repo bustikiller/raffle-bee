@@ -6,8 +6,8 @@
 #  raffle_id  :integer
 #  user_id    :integer
 #  number     :integer          not null
-#  email      :string(255)      not null
-#  name       :string(255)      not null
+#  email      :string           not null
+#  name       :string           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
