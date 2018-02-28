@@ -47,7 +47,7 @@ class RafflesController < ApplicationController
     if @ticket.valid?
       amount = [@ticket.amount.to_i, 1].max
       numbers_bought = @raffle.sell_several_tickets @ticket, amount
-      MailerService.new.send(
+      MailerService.new.deliver(
           name: @ticket.name,
           raffle: @raffle,
           email: @ticket.email,
