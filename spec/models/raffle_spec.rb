@@ -8,4 +8,11 @@ RSpec.describe Raffle, type: :model do
       end
     end
   end
+
+  describe '#public_date' do
+    it 'returns a day after the raffle has ended' do
+      raffle = create :raffle, ends_on: Date.new(2018, 1, 1)
+      expect(raffle.public_date).to eq(Date.new(2018, 1, 2))
+    end
+  end
 end

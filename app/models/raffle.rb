@@ -58,11 +58,15 @@ class Raffle < ApplicationRecord
     (0...max_number_of_tickets)
   end
 
+  def public_date
+    ends_on + 1.day
+  end
+
   private
 
   def define_start_and_end_dates
-    starts_on = starts_on.beginning_of_day if starts_on
-    ends_on = ends_on.end_of_day if ends_on
+    self.starts_on = starts_on.beginning_of_day if starts_on
+    self.ends_on = ends_on.end_of_day if ends_on
   end
 
   def ends_on_after_starts_on

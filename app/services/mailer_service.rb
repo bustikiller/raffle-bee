@@ -14,7 +14,7 @@ class MailerService
     personalization.add_substitution(Substitution.new(key: '-name-', value: name.capitalize))
     personalization.add_substitution(Substitution.new(key: '-tickets-', value: tickets.join(', ')))
     personalization.add_substitution(Substitution.new(key: '-raffle_name-', value: raffle.name))
-    personalization.add_substitution(Substitution.new(key: '-raffle_end_date-', value: format_date_es(raffle.ends_on)))
+    personalization.add_substitution(Substitution.new(key: '-raffle_end_date-', value: format_date_es(raffle.public_date)))
     personalization.add_substitution(Substitution.new(key: '-award-', value: raffle.award))
     mail.add_personalization(personalization)
     mail.add_content(Content.new(type: 'text/html', value: 'body placeholder'))
