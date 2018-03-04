@@ -12,7 +12,7 @@ class MailerService
     personalization = Personalization.new
     personalization.add_to(Email.new(email: email, name: name))
     personalization.add_substitution(Substitution.new(key: '-name-', value: name.capitalize))
-    personalization.add_substitution(Substitution.new(key: '-tickets-', value: tickets.join(', ')))
+    personalization.add_substitution(Substitution.new(key: '-tickets-', value: formatted_ticket_numbers(tickets)))
     personalization.add_substitution(Substitution.new(key: '-raffle_name-', value: raffle.name))
     personalization.add_substitution(Substitution.new(key: '-raffle_end_date-', value: format_date_es(raffle.public_date)))
     personalization.add_substitution(Substitution.new(key: '-award-', value: raffle.award))
@@ -33,6 +33,10 @@ class MailerService
   end
 
   private
+
+  def formatted_ticket_numbers(tickets)
+    tickets.map {|i| '%03i' % i}.join(', ')
+  end
 
   def format_date_es(date)
     "#{date.day} de #{month_name_es(date.month)} de #{date.year}"
