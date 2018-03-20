@@ -15,4 +15,12 @@ RSpec.describe Raffle, type: :model do
       expect(raffle.public_date).to eq(Date.new(2018, 1, 2))
     end
   end
+
+  describe '#amount_gathered' do
+    it 'calculates the incomes of the raffle' do
+      raffle = build :raffle, price: 4
+      3.times { create :ticket, raffle: raffle }
+      expect(raffle.amount_gathered).to eq 12
+    end
+  end
 end
