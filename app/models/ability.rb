@@ -9,6 +9,7 @@ class Ability
     elsif user.regular_user?
       can  [:read, :new_sale, :create_sale], Raffle, id: user.assignments.pluck(:raffle_id)
       can :read, Ticket
+      can :manage, Assignment, raffle_id: user.raffles_owned.pluck(:id)
     end
   end
 end
