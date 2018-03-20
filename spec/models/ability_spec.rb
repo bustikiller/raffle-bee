@@ -15,5 +15,26 @@ RSpec.describe Ability, type: :model do
         end
       end
     end
+
+    describe 'assignments' do
+      let(:assignment){ build :assignment, user: user, raffle: raffle }
+      context 'when the user is a regular user' do
+        it 'cannot manage the assignment' do
+          expect(Ability.new(user).can?(:manage, assignment)).to be_falsey
+        end
+      end
+      context 'when the user is a seller' do
+        it 'cannot manage the assignment' do
+          raffle.sellers << user
+          expect(Ability.new(user).can?(:manage, assignment)).to be_falsey
+        end
+      end
+      context 'when the user is the owner' do
+        it 'can manage the assignments' do
+          raffle.update owner: user
+          expect(Ability.new(user).can?(:manage, assignment)).to be_truthy
+        end
+      end
+    end
   end
 end

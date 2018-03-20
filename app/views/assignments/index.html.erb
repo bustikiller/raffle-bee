@@ -1,0 +1,8 @@
+<%= panel_with_body title: index_model_text(Assignment) do %>
+  <%=
+    bootstrap_table do |table|
+      table.headers = ['Email', 'Papeletas']
+      table.rows = @sellers.to_a
+    end
+  %>
+<% end %>

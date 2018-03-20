@@ -31,6 +31,7 @@ class User < ApplicationRecord
 
   has_many :assignments
   has_many :raffles, through: :assignments
+  has_many :tickets, through: :raffles
 
   has_many :raffles_owned, inverse_of: :owner, class_name: :Raffle
 
