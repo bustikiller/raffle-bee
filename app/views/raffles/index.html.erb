@@ -1,5 +1,16 @@
 <%= panel_with_body title: index_model_text(Raffle) do %>
 
-    <%= riews_table_with_code(:raffles_index) %>
+  <%= bootstrap_table do |table|
+    table.headers = ['Nombre', 'Papeletas vendidas', 'Recaudado', 'Vender', 'Ranking']
+    table.rows = @raffles.map do |r|
+      [
+        r.name,
+        r.tickets.count,
+        "#{r.amount_gathered.to_i}€",
+        link_to('Vender', raffle_sell_path(r)),
+        link_to('Ranking', raffle_assignments_path(r))
+      ]
+    end
+  end %>
 
 <% end %>

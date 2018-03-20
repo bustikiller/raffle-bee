@@ -62,6 +62,10 @@ class Raffle < ApplicationRecord
     ends_on + 1.day
   end
 
+  def amount_gathered
+    price * tickets.count
+  end
+
   private
 
   def define_start_and_end_dates
