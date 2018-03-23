@@ -1,15 +1,10 @@
 <%= panel_with_body title: index_model_text(Raffle) do %>
 
   <%= bootstrap_table do |table|
-    table.headers = ['Nombre', 'Papeletas vendidas', 'Recaudado', 'Vender', 'Ranking']
+    table.headers = common_headers
+    table.headers += extra_headers if @raffles.any?{|r| can_create_assignment?(r)}
     table.rows = @raffles.map do |r|
-      [
-        r.name,
-        r.tickets.count,
-        "#{r.amount_gathered.to_i}€",
-        link_to('Vender', raffle_sell_path(r)),
-        link_to('Ranking', raffle_assignments_path(r))
-      ]
+      common_values(r) + extra_values(r)
     end
   end %>
 

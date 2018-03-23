@@ -1,0 +1,9 @@
+<%= simple_form_for :assignment,
+                    url: raffle_assignments_path(raffle),
+                    html: { class: 'form-horizontal' },
+                    wrapper: :horizontal_form do |f| %>
+
+    <%= f.input :email %>
+
+    <%= submit_button f %>
+<% end %>
