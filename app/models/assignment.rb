@@ -10,8 +10,9 @@
 #
 # Indexes
 #
-#  index_assignments_on_raffle_id  (raffle_id)
-#  index_assignments_on_user_id    (user_id)
+#  index_assignments_on_raffle_id              (raffle_id)
+#  index_assignments_on_raffle_id_and_user_id  (raffle_id,user_id) UNIQUE
+#  index_assignments_on_user_id                (user_id)
 #
 # Foreign Keys
 #
