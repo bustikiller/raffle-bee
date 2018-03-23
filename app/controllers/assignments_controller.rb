@@ -16,6 +16,8 @@ class AssignmentsController < ApplicationController
     else
       redirect_to new_raffle_assignment_path(@raffle), alert: 'El usuario no se encuentra en el sistema'
     end
+  rescue ActiveRecord::RecordNotUnique
+    redirect_to new_raffle_assignment_path(@raffle), alert: 'El usuario ya es un vendedor de la rifa'
   end
 
   private
