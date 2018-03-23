@@ -26,4 +26,8 @@ module ApplicationHelper
     end
   end
 
+  def render_flash_messages
+    alert_box(flash&.alert, context: :danger, dismissible: true) if flash&.alert
+    alert_box(flash&.notice, context: :success, dismissible: true) if flash&.notice
+  end
 end
