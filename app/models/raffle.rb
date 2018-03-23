@@ -66,6 +66,15 @@ class Raffle < ApplicationRecord
     price * tickets.count
   end
 
+  def sales_summary
+    sellers.joins("LEFT JOIN (SELECT * from tickets where tickets.raffle_id = #{id}) AS tickets ON users.id = tickets.user_id")
+        .group('users.email')
+        .count('tickets.id')
+        .sort_by{|_k,v| v}
+        .reverse
+        .to_h
+  end
+
   private
 
   def define_start_and_end_dates
