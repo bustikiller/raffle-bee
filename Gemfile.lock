@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/bustikiller/btgen
-  revision: 48bafc34341b9a2396f7b9fc3d733f9bab88ea70
+  revision: dde473f15b8c3c0a59914b7590956a851e9dfd73
   branch: master
   specs:
     btgen (0.1.1)
@@ -55,7 +55,7 @@ GEM
       activerecord (>= 3.2, < 6.0)
       rake (>= 10.4, < 13.0)
     arel (8.0.0)
-    autoprefixer-rails (8.0.0)
+    autoprefixer-rails (8.2.0)
       execjs
     bcrypt (3.1.11)
     bh (1.3.6)
@@ -201,7 +201,7 @@ GEM
       rspec-core (>= 2, < 4, != 2.12.0)
     ruby_dep (1.5.0)
     ruby_http_client (3.3.0)
-    sass (3.5.5)
+    sass (3.5.6)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
       rb-fsevent (~> 0.9, >= 0.9.4)
