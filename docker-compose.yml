@@ -1,7 +1,7 @@
 version: '3'
 services:
   db:
-    image: postgres
+    image: postgres:10.5
     volumes:
       - ./tmp/db:/var/lib/postgresql/data
   web:
@@ -14,4 +14,4 @@ services:
     depends_on:
       - db
     environment:
-      - DATABASE_HOST=db   
+      - DATABASE_HOST=db
