@@ -59,6 +59,8 @@ jobs:
           path: /tmp/test-results
           destination: test-results
   docker-build:
+    docker:
+       - image: ubuntu
     steps:
       - checkout
       - run:
