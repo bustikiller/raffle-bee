@@ -58,3 +58,10 @@ jobs:
       - store_artifacts:
           path: /tmp/test-results
           destination: test-results
+  docker-build:
+    steps:
+      - checkout
+      - run:
+          name: Build Docker image
+          command: |
+            docker build -t raffle-bee
