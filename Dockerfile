@@ -1,5 +1,4 @@
 FROM ruby:2.5.1
-MAINTAINER Bustikiller
 RUN apt-get update -qq \
     && apt-get install --no-install-recommends -y build-essential libpq-dev nodejs \
     && apt-get clean \
