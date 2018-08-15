@@ -60,9 +60,13 @@ jobs:
           destination: test-results
   docker-build:
     docker:
-       - image: docker:18.06
-    steps:
+       - image: ubuntu:16.04
+   steps:
       - checkout
+      - run:
+          name: Install docker
+          command: |
+            apt update && apt install --no-install-recommends -y curl && curl -sSL https://get.docker.com/ | sh
       - run:
           name: Build Docker image
           command: |
