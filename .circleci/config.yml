@@ -60,7 +60,7 @@ jobs:
           destination: test-results
   docker-build:
     docker:
-       - image: ubuntu
+       - image: docker:18.06
     steps:
       - checkout
       - run:
