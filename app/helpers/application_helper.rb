@@ -20,9 +20,9 @@ module ApplicationHelper
     t("activerecord.models.#{model.name.downcase}.other")
   end
 
-  def submit_button(f)
+  def submit_button(f, label=nil)
     content_tag :div, class: 'col-sm-offset-3 col-sm-9' do
-      f.submit class: 'btn btn-primary'
+      f.submit label, class: 'btn btn-primary'
     end
   end
 

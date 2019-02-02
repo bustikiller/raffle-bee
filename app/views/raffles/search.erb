@@ -1,0 +1,13 @@
+<%= panel_with_body title: 'Buscar papeleta' do %>
+  <% if @ticket.present? %>
+    <%= content_tag :p, "La papeleta pertenece a #{@ticket.name} (#{@ticket.email})" %>
+  <% else %>
+    <%= content_tag :p, 'La papeleta aún no se ha vendido' %>
+  <% end %>
+
+  <%= simple_form_for '', html: { class: 'form-horizontal' }, wrapper: :horizontal_form, method: :get do |f| %>
+    <%= f.input :number, label: 'Número', name: 'number' %>
+
+    <%= submit_button f, 'Buscar' %>
+<% end %>
+<% end %>
