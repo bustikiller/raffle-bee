@@ -1,7 +1,7 @@
 class RafflesController < ApplicationController
   load_and_authorize_resource
 
-  before_action :load_resource, only: [:new_sale, :create_sale]
+  before_action :load_resource, only: [:new_sale, :create_sale, :search]
 
   def new
   end
@@ -57,6 +57,10 @@ class RafflesController < ApplicationController
     else
       render :new_sale
     end
+  end
+
+  def search
+    @ticket = @raffle.tickets.where(number: params['number']).limit(1).select(:name, :email).first
   end
 
   private

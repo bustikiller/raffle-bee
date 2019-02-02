@@ -4,7 +4,7 @@ module RafflesHelper
   end
 
   def common_headers
-    ['Nombre', 'Papeletas vendidas', 'Recaudado', 'Vender', 'Ranking']
+    ['Nombre', 'Papeletas vendidas', 'Recaudado', 'Vender', 'Ranking', 'Buscar']
   end
 
   def common_values(raffle)
@@ -13,7 +13,8 @@ module RafflesHelper
       raffle.tickets.count,
       "#{raffle.amount_gathered.to_i}€",
       link_to('Vender', raffle_sell_path(raffle)),
-      link_to('Ranking', raffle_assignments_path(raffle))
+      link_to('Ranking', raffle_assignments_path(raffle)),
+      link_to('Buscar', raffle_search_path(raffle))
     ]
   end
 
