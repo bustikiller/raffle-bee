@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: raffles
@@ -22,13 +24,13 @@
 #  fk_rails_...  (user_id => users.id)
 #
 
-require "rails_helper"
+require 'rails_helper'
 
 RSpec.describe Raffle, type: :model do
   describe 'validation' do
     describe 'price' do
       it 'should be greater than 0' do
-        expect(build :raffle, price: -1).not_to be_valid
+        expect(build(:raffle, price: -1)).not_to be_valid
       end
     end
 
@@ -59,7 +61,6 @@ RSpec.describe Raffle, type: :model do
 
   describe '#sales_summary' do
     before do
-
       #           [raffle_1]  [raffle_2]
       # [user 1]      1           x
       # [user 2]      3           4
@@ -86,5 +87,17 @@ RSpec.describe Raffle, type: :model do
     it 'displays the sales by person test 2' do
       expect(@raffle_2.sales_summary).to eq(@user_3.email => 6, @user_2.email => 4)
     end
+  end
+
+  describe 'on deletion' do
+    before do
+      @raffle = create :raffle
+      @user = create :user
+      @raffle.sellers << @user
+      create :ticket, user: @user, raffle: @raffle
+      @raffle.destroy
+    end
+    it('removes all tickets') { expect(Ticket.count).to eq 0 }
+    it('removes all assignments') { expect(Assignment.count).to eq 0 }
   end
 end

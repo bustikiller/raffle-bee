@@ -24,10 +24,10 @@
 
 class Raffle < ApplicationRecord
   belongs_to :owner, class_name: :User, foreign_key: :user_id
-  has_many :tickets
+  has_many :tickets, dependent: :destroy
 
-  has_many :assignments
-  has_many :sellers, :through => :assignments, source: :user
+  has_many :assignments, dependent: :destroy
+  has_many :sellers, :through => :assignments, source: :user, dependent: :destroy
 
   validates_presence_of :name, :starts_on, :ends_on, :max_number_of_tickets, :price, :award
   validates :max_number_of_tickets, numericality: { only_integer: true,
