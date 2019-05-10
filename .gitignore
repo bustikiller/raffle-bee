@@ -22,3 +22,6 @@ tmp/
 vendor/
 log/
 .env
+
+# Ignore database
+db/*.sqlite3
