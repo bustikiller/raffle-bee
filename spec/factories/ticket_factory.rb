@@ -2,9 +2,9 @@
 #
 # Table name: tickets
 #
-#  id         :integer          not null, primary key
-#  raffle_id  :integer
-#  user_id    :integer
+#  id         :bigint(8)        not null, primary key
+#  raffle_id  :bigint(8)
+#  user_id    :bigint(8)
 #  number     :integer          not null
 #  email      :string           not null
 #  name       :string           not null

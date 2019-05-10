@@ -2,13 +2,13 @@
 #
 # Table name: raffles
 #
-#  id                    :integer          not null, primary key
+#  id                    :bigint(8)        not null, primary key
 #  name                  :string           not null
 #  starts_on             :date             not null
 #  ends_on               :date             not null
 #  max_number_of_tickets :integer          not null
 #  price                 :decimal(5, 2)    not null
-#  user_id               :integer
+#  user_id               :bigint(8)
 #  created_at            :datetime         not null
 #  updated_at            :datetime         not null
 #  award                 :text
