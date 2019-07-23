@@ -10,7 +10,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'devise'
 gem 'devise-i18n'
 gem 'eefgilm'
-gem 'jbuilder', '~> 2.8'
+gem 'jbuilder', '~> 2.9'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'pg'
@@ -25,13 +25,14 @@ gem 'turbolinks', '~> 5'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'uglifier', '>= 1.3.0'
 gem 'sendgrid-ruby'
+gem 'rollbar'
 
 group :development, :test do
   gem 'pry'
   gem 'rspec-rails', '~> 3.8'
   gem 'factory_bot'
   gem 'factory_bot_rails'
-  gem "sqlite3", "~> 1.3.6"
+  gem "sqlite3", "~> 1.4.1"
 end
 
 group :development do
