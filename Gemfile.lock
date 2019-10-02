@@ -120,10 +120,9 @@ GEM
       thor (>= 0.14, < 2.0)
     jquery-ui-rails (6.0.1)
       railties (>= 3.2.16)
-    listen (3.1.5)
-      rb-fsevent (~> 0.9, >= 0.9.4)
-      rb-inotify (~> 0.9, >= 0.9.7)
-      ruby_dep (~> 1.2)
+    listen (3.2.0)
+      rb-fsevent (~> 0.10, >= 0.10.3)
+      rb-inotify (~> 0.9, >= 0.9.10)
     loofah (2.2.3)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -222,7 +221,6 @@ GEM
     rubocop-rspec (1.36.0)
       rubocop (>= 0.68.1)
     ruby-progressbar (1.10.1)
-    ruby_dep (1.5.0)
     ruby_http_client (3.3.0)
     sass (3.7.3)
       sass-listen (~> 4.0.0)
@@ -302,7 +300,7 @@ DEPENDENCIES
   jbuilder (~> 2.9)
   jquery-rails
   jquery-ui-rails
-  listen (>= 3.0.5, < 3.2)
+  listen (>= 3.0.5, < 3.3)
   pg
   pry
   puma (~> 3.12)
