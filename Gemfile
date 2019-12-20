@@ -32,7 +32,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.9'
   gem 'factory_bot'
   gem 'factory_bot_rails'
-  gem "sqlite3", "~> 1.4.1"
+  gem "sqlite3", "~> 1.4.2"
 end
 
 group :development do
