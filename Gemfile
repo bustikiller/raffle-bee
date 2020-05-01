@@ -19,7 +19,7 @@ gem 'rails', '~> 5.2.4'
 gem 'rails-i18n'
 gem 'rails_bootstrap_navbar'
 gem 'btgen', git: 'https://github.com/bustikiller/btgen', branch: 'master'
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails', '~> 6.0'
 gem 'simple_form'
 gem 'turbolinks', '~> 5'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
