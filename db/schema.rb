@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180323202017) do
+ActiveRecord::Schema.define(version: 2019_05_10_175206) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,13 @@ ActiveRecord::Schema.define(version: 20180323202017) do
     t.datetime "updated_at", null: false
     t.text "award"
     t.index ["user_id"], name: "index_raffles_on_user_id"
+  end
+
+  create_table "results", force: :cascade do |t|
+    t.date "date", null: false
+    t.integer "number", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "riews_action_links", force: :cascade do |t|
