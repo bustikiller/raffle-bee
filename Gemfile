@@ -29,7 +29,7 @@ gem 'rollbar'
 
 group :development, :test do
   gem 'pry'
-  gem 'rspec-rails', '~> 4.0'
+  gem 'rspec-rails', '~> 5.0'
   gem 'factory_bot'
   gem 'factory_bot_rails'
   gem "sqlite3", "~> 1.4.2"
